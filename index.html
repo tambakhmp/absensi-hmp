@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ══════════════════════════════════════════════════
+       GANTI 3 variabel di bawah ini sesuai data Anda:
+       1. APP_URL    → link Google Apps Script
+       2. LOGO_URL   → link logo dari Google Drive
+       3. NAMA       → nama instansi
+       ══════════════════════════════════════════════════ -->
+  <script>
+    var APP_URL  = 'https://script.google.com/macros/s/AKfycby-X7cmY8H4f9KCjRM_EVamJ3aolTnlZs6f1H_FXcWbPGHp-s2VcFrCQK6p72di52IY/exec';
+    var LOGO_URL = 'GANTI_DENGAN_URL_LOGO_DRIVE';  // contoh: https://drive.google.com/uc?export=view&id=XXXXX
+    var NAMA     = 'PT. HUTAKALO MINATANI PRIMA';
+  </script>
+
+  <!-- ── Open Graph (WhatsApp, Facebook, Telegram) ── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="PT. HUTAKALO MINATANI PRIMA — Absensi">
+  <meta property="og:description" content="Sistem Absensi Karyawan Digital. Klik untuk masuk ke aplikasi.">
+  <meta property="og:image"       content="GANTI_DENGAN_URL_LOGO_DRIVE">
+  <meta property="og:image:width"  content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:site_name"   content="PT. HUTAKALO MINATANI PRIMA">
+  <meta property="og:locale"      content="id_ID">
+
+  <!-- ── Twitter Card ── -->
+  <meta name="twitter:card"        content="summary">
+  <meta name="twitter:title"       content="PT. HUTAKALO MINATANI PRIMA — Absensi">
+  <meta name="twitter:description" content="Sistem Absensi Karyawan Digital">
+  <meta name="twitter:image"       content="GANTI_DENGAN_URL_LOGO_DRIVE">
+
+  <!-- ── SEO ── -->
+  <meta name="description" content="PT. HUTAKALO MINATANI PRIMA — Sistem Absensi Karyawan Digital">
+  <meta name="theme-color" content="#0f172a">
+  <title>PT. HUTAKALO MINATANI PRIMA — Absensi</title>
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background:#0f172a;
+      color:#f1f5f9;
+      font-family:'Segoe UI',Arial,sans-serif;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .card{
+      background:rgba(30,41,59,.95);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:20px;
+      padding:2.5rem 2rem;
+      width:100%;
+      max-width:380px;
+      text-align:center;
+      margin:1rem;
+      box-shadow:0 25px 60px rgba(0,0,0,.6);
+      animation:up .35s ease;
+    }
+    @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    #logoImg{
+      width:88px;height:88px;
+      object-fit:contain;
+      border-radius:16px;
+      border:2px solid rgba(255,255,255,.12);
+      margin:0 auto 1.25rem;
+      display:block;
+      box-shadow:0 4px 20px rgba(0,0,0,.4);
+    }
+    #logoFallback{
+      width:88px;height:88px;
+      background:linear-gradient(135deg,#1e3a5f,#2563eb);
+      border-radius:16px;
+      display:flex;align-items:center;justify-content:center;
+      margin:0 auto 1.25rem;
+      font-size:2.5rem;
+    }
+    h1{font-size:1.15rem;font-weight:800;margin-bottom:.35rem;letter-spacing:.01em}
+    .sub{font-size:.82rem;color:#64748b;margin-bottom:2rem;line-height:1.4}
+    .btn{
+      display:block;width:100%;
+      padding:.9rem;
+      background:linear-gradient(135deg,#3b82f6,#2563eb);
+      color:#fff;
+      border:none;border-radius:12px;
+      font-size:.95rem;font-weight:700;
+      cursor:pointer;
+      text-decoration:none;
+      transition:opacity .15s,transform .1s;
+      box-shadow:0 4px 16px rgba(59,130,246,.35);
+      letter-spacing:.02em;
+    }
+    .btn:hover{opacity:.9}
+    .btn:active{transform:scale(.98)}
+    .spin{
+      width:20px;height:20px;
+      border:2px solid rgba(255,255,255,.3);
+      border-top-color:#fff;
+      border-radius:50%;
+      animation:sp .7s linear infinite;
+      display:inline-block;vertical-align:middle;
+      margin-right:6px;
+    }
+    @keyframes sp{to{transform:rotate(360deg)}}
+    .footer{margin-top:1.5rem;font-size:.72rem;color:#334155}
+    .redirect-info{
+      background:rgba(59,130,246,.08);
+      border:1px solid rgba(59,130,246,.2);
+      border-radius:8px;
+      padding:.65rem;
+      font-size:.78rem;
+      color:#60a5fa;
+      margin-bottom:1.25rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Logo: tampilkan jika URL logo sudah diisi, fallback ke emoji -->
+    <img id="logoImg" src="" alt="Logo" style="display:none">
+    <div id="logoFallback">🏢</div>
+
+    <h1 id="namaInstansi">PT. HUTAKALO MINATANI PRIMA</h1>
+    <p class="sub">Sistem Absensi Karyawan Digital</p>
+
+    <div class="redirect-info" id="redirectInfo">
+      ⏳ Mengarahkan ke aplikasi...
+    </div>
+
+    <a id="btnMasuk" class="btn" href="#">
+      <span class="spin"></span> Membuka Aplikasi...
+    </a>
+
+    <p class="footer">Jika tidak otomatis diarahkan, klik tombol di atas.</p>
+  </div>
+
+  <script>
+    // ── Setup tampilan ──────────────────────────────────
+    document.getElementById('namaInstansi').textContent = NAMA;
+    document.getElementById('btnMasuk').href = APP_URL;
+
+    // Tampilkan logo jika URL sudah diisi
+    if (LOGO_URL && LOGO_URL !== 'GANTI_DENGAN_URL_LOGO_DRIVE') {
+      var img = document.getElementById('logoImg');
+      var fb  = document.getElementById('logoFallback');
+      img.src = LOGO_URL;
+      img.onload  = function() { img.style.display='block'; fb.style.display='none'; };
+      img.onerror = function() { img.style.display='none';  fb.style.display='flex'; };
+    }
+
+    // ── Auto redirect setelah 1.5 detik ──────────────────
+    // Delay memberi waktu bagi crawler WhatsApp/Telegram
+    // untuk membaca OG tags terlebih dahulu
+    var countdown = 2;
+    var info = document.getElementById('redirectInfo');
+    var btn  = document.getElementById('btnMasuk');
+
+    var timer = setInterval(function() {
+      countdown--;
+      if (countdown <= 0) {
+        clearInterval(timer);
+        info.textContent = '✅ Membuka aplikasi...';
+        btn.innerHTML    = '🚀 Buka Aplikasi Absensi';
+        btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+        window.location.href = APP_URL;
+      } else {
+        info.textContent = '⏳ Mengarahkan dalam ' + countdown + ' detik...';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
