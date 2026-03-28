@@ -3,40 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Absensi PT. HMP</title>
+    <title>Absensi HMP</title>
     <style>
-        /* Mengunci layar agar tidak bisa di-scroll secara manual ke atas untuk melihat banner */
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            height: 100%; 
-            width: 100%; 
-            overflow: hidden; 
-            background-color: #0f172a; 
-        }
-
-        .iframe-container {
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background-color: #0f172a; }
+        
+        /* Container ini memotong bagian atas agar banner GAS hilang permanen */
+        .wrapper {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; right: 0; bottom: 0;
             overflow: hidden;
         }
 
         iframe {
             border: none;
             width: 100%;
-            /* Trik: Menambah tinggi iframe dan menariknya ke atas lebih jauh */
-            height: calc(100% + 65px); 
-            margin-top: -65px; 
+            /* Tarik 70px ke atas untuk membuang banner GAS */
+            height: calc(100% + 70px); 
+            margin-top: -70px;
             display: block;
         }
     </style>
 </head>
 <body>
-    <div class="iframe-container">
-        <iframe src="https://script.google.com/macros/s/AKfycbwTwVOpHCHmGQKqlskpnruvHE-4ughPS_fLMp7hfayRtoYYbp6vSxDcSwZWxnm2iBr6/exec" allow="geolocation; camera; microphone"></iframe>
+    <div class="wrapper">
+        <iframe src="https://script.google.com/macros/s/AKfycbwTwVOpHCHmGQKqlskpnruvHE-4ughPS_fLMp7hfayRtoYYbp6vSxDcSwZWxnm2iBr6/exec" 
+                allow="geolocation; camera; microphone"></iframe>
     </div>
 </body>
 </html>
