@@ -5,27 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Absensi HMP</title>
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background-color: #0f172a; }
-        
-        /* Container ini memotong bagian atas agar banner GAS hilang permanen */
-        .wrapper {
+        /* Mengembalikan ke tampilan standar yang stabil */
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            width: 100%; 
+            overflow: hidden; 
+            background-color: #0f172a; 
+        }
+
+        .container {
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            overflow: hidden;
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
         }
 
         iframe {
             border: none;
             width: 100%;
-            /* Tarik 70px ke atas untuk membuang banner GAS */
-            height: calc(100% + 70px); 
-            margin-top: -70px;
+            height: 100%; /* Tinggi normal 100% tanpa ditarik */
             display: block;
         }
     </style>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="container">
+        <!-- Menggunakan URL GAS Anda langsung secara normal -->
         <iframe src="https://script.google.com/macros/s/AKfycbwTwVOpHCHmGQKqlskpnruvHE-4ughPS_fLMp7hfayRtoYYbp6vSxDcSwZWxnm2iBr6/exec" 
                 allow="geolocation; camera; microphone"></iframe>
     </div>
