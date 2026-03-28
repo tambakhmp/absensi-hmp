@@ -2,38 +2,24 @@
   "name": "PT. HUTAKALO MINATANI PRIMA — Absensi",
   "short_name": "Absensi HMP",
   "description": "Sistem Absensi Karyawan Digital",
-  "start_url": "/index.html",
+  "start_url": "index.html",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone"],
   "orientation": "portrait",
   "theme_color": "#0f172a",
   "background_color": "#0f172a",
-  "lang": "id",
   "icons": [
     {
       "src": "https://raw.githubusercontent.com/tambakhmp/absensi-hmp/main/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "https://raw.githubusercontent.com/tambakhmp/absensi-hmp/main/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
       "src": "https://raw.githubusercontent.com/tambakhmp/absensi-hmp/main/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "https://raw.githubusercontent.com/tambakhmp/absensi-hmp/main/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ]
 }
