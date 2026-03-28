@@ -2,127 +2,157 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PT. HUTAKALO MINATANI PRIMA — Absensi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Absensi HMP</title>
 
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;font-family:"Segoe UI",system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  background:#0f172a url('https://drive.google.com/uc?export=view&id=1EDBC6Mr1IE93ae3KHdttFKEDl_-2dvkq') center/cover fixed;
-  color:#f1f5f9;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  min-height:100vh;
-  padding:1rem;
-  position:relative;
-  overflow-x:hidden;
+  background:url('https://drive.google.com/uc?export=view&id=1EDBC6Mr1IE93ae3KHdttFKEDl_-2dvkq') center/cover no-repeat;
+  color:#fff;
+  overflow:hidden;
 }
 
+/* overlay blur */
 body::before{
-  content:'';position:fixed;inset:0;
-  background:rgba(0,0,0,.45);
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(8px);
 }
 
+/* card */
 .card{
   position:relative;
-  background:rgba(15,23,42,.92);
-  border-radius:20px;
-  padding:2.2rem 1.8rem;
   width:100%;
-  max-width:400px;
+  max-width:360px;
+  padding:25px 20px;
+  border-radius:20px;
+  background:rgba(15,23,42,.75);
+  backdrop-filter:blur(20px);
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
   text-align:center;
-  backdrop-filter:blur(16px);
-  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  animation:fadeUp .5s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
 .logo{
-  width:80px;height:80px;border-radius:16px;
-  margin:0 auto 1rem;
+  width:75px;
+  height:75px;
+  margin:auto;
+  margin-bottom:12px;
+  border-radius:15px;
 }
 
-h1{font-size:1.1rem;font-weight:800}
-.sub{font-size:.8rem;color:#94a3b8;margin-bottom:1.2rem}
+h1{
+  font-size:15px;
+  font-weight:700;
+}
 
+.sub{
+  font-size:12px;
+  color:#94a3b8;
+  margin-bottom:15px;
+}
+
+/* status */
 .status{
-  display:flex;justify-content:center;gap:.4rem;
-  font-size:.75rem;color:#94a3b8;
-  margin-bottom:1.2rem
+  font-size:12px;
+  margin-bottom:15px;
+  color:#4ade80;
 }
 
-.dot{
-  width:7px;height:7px;background:#22c55e;border-radius:50%;
+/* countdown circle */
+.circle{
+  width:70px;
+  height:70px;
+  margin:auto;
+  border-radius:50%;
+  border:3px solid #3b82f6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  font-weight:bold;
+  color:#3b82f6;
+  margin-bottom:10px;
 }
 
-.ring{width:60px;height:60px;margin:auto;position:relative}
-.num{
-  position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:bold;color:#3b82f6
+.text{
+  font-size:12px;
+  color:#94a3b8;
+  margin-bottom:15px;
 }
 
-.lbl{font-size:.7rem;margin-bottom:1rem;color:#94a3b8}
-
+/* button */
 .btn{
-  display:block;
   width:100%;
-  padding:.8rem;
-  background:#3b82f6;
-  color:#fff;
-  border-radius:10px;
-  margin-bottom:.5rem;
-  text-decoration:none;
-}
-
-.btn-sec{
-  display:block;
-  width:100%;
-  padding:.7rem;
-  background:#1e293b;
-  border-radius:10px;
-  margin-bottom:1rem;
+  padding:12px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#3b82f6,#2563eb);
   text-decoration:none;
   color:#fff;
+  font-weight:600;
+  display:block;
+  margin-bottom:8px;
 }
 
+.btn2{
+  width:100%;
+  padding:10px;
+  border-radius:12px;
+  background:rgba(255,255,255,.08);
+  text-decoration:none;
+  color:#fff;
+  font-size:13px;
+}
+
+/* features */
 .feats{
+  margin-top:15px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:.4rem
+  gap:5px;
 }
 
 .feat{
-  font-size:.7rem;
-  padding:.3rem;
-  background:#111827;
-  border-radius:6px
+  font-size:11px;
+  padding:6px;
+  background:rgba(255,255,255,.05);
+  border-radius:8px;
 }
 
+/* footer */
 .footer{
-  font-size:.65rem;
-  text-align:center;
-  margin-top:.8rem;
+  position:absolute;
+  bottom:10px;
+  font-size:10px;
+  opacity:.5;
 }
 
-/* 🔥 MOBILE FIX */
-@media (max-width:480px){
-
-  body{
-    background-attachment:scroll;
-    padding:.6rem;
-  }
-
+/* mobile perfect */
+@media(max-width:480px){
   .card{
-    padding:1.4rem 1rem;
-    border-radius:14px;
+    margin:10px;
+    padding:20px 15px;
   }
 
-  .logo{width:60px;height:60px}
-  h1{font-size:.95rem}
-  .sub{font-size:.7rem}
-  .btn{font-size:.85rem}
+  .circle{
+    width:60px;
+    height:60px;
+  }
 }
 </style>
 </head>
@@ -134,46 +164,43 @@ h1{font-size:1.1rem;font-weight:800}
 <img class="logo" src="https://drive.google.com/uc?export=view&id=1wZTTly4WpgRdCvV6iPNEnLLN-dSRE8E4">
 
 <h1>PT. HUTAKALO MINATANI PRIMA</h1>
-<p class="sub">Sistem Absensi Karyawan</p>
+<div class="sub">Sistem Absensi Digital</div>
 
-<div class="status">
-<div class="dot"></div> Sistem aktif
-</div>
+<div class="status">● Sistem Aktif</div>
 
-<div class="ring">
-<div class="num" id="num">3</div>
-</div>
+<div class="circle" id="num">3</div>
+<div class="text" id="txt">Masuk dalam 3 detik...</div>
 
-<div class="lbl" id="lbl">Masuk dalam 3 detik...</div>
+<a id="btn" class="btn">Membuka aplikasi...</a>
 
-<a id="go" class="btn" href="#">Membuka...</a>
-
-<a class="btn-sec" target="_blank"
+<a class="btn2" target="_blank"
 href="https://script.google.com/macros/s/AKfycbwTwVOpHCHmGQKqlskpnruvHE-4ughPS_fLMp7hfayRtoYYbp6vSxDcSwZWxnm2iBr6/exec">
-Buka Manual
+Buka manual
 </a>
 
 <div class="feats">
 <div class="feat">📍 GPS</div>
-<div class="feat">📷 Foto</div>
-<div class="feat">📊 Excel</div>
-<div class="feat">🔔 Notif</div>
+<div class="feat">📷 Selfie</div>
+<div class="feat">📊 Laporan</div>
+<div class="feat">🔔 Notifikasi</div>
 </div>
 
 </div>
 
 <div class="footer">
-© 2026 PT. HUTAKALO MINATANI PRIMA
+© 2026 HMP
 </div>
 
 <script>
 let url="https://script.google.com/macros/s/AKfycbwTwVOpHCHmGQKqlskpnruvHE-4ughPS_fLMp7hfayRtoYYbp6vSxDcSwZWxnm2iBr6/exec";
+
 let n=3;
 
 let t=setInterval(()=>{
 n--;
+
 document.getElementById("num").innerText=n>0?n:"✓";
-document.getElementById("lbl").innerText=n>0?"Masuk dalam "+n+" detik...":"Membuka...";
+document.getElementById("txt").innerText=n>0?"Masuk dalam "+n+" detik...":"Membuka aplikasi...";
 
 if(n<=0){
 clearInterval(t);
