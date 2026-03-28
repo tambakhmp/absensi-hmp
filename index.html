@@ -25,9 +25,9 @@
     .prog{fill:none;stroke:#3b82f6;stroke-width:5;stroke-linecap:round;stroke-dasharray:157;transition:stroke-dashoffset 1s linear}
     .num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;color:#3b82f6}
     .lbl{font-size:.75rem;color:#94a3b8}
-    .btn{display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;padding:1rem;background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;border-radius:16px;font-size:0.95rem;font-weight:700;text-decoration:none;transition:all 0.2s}
+    .btn{display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;padding:1rem;background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;border-radius:16px;font-size:0.95rem;font-weight:700;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none}
     .btn.go{background:linear-gradient(135deg,#10b981,#059669)}
-    #installBanner{display:none !important} /* Sembunyikan banner sesuai permintaan */
+    #installBtn{display:none;margin-top:10px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2)}
   </style>
 </head>
 <body>
@@ -40,8 +40,34 @@
     <div class="lbl" id="cLbl">Mengarahkan dalam <b>3</b> detik...</div>
   </div>
   <a id="btnGo" class="btn" href="app.html">🚀 <span id="btnTxt">Membuka Aplikasi...</span></a>
+  <button id="installBtn" class="btn">📲 Pasang Aplikasi (Install)</button>
 </div>
+
 <script>
+  // Service Worker Registration
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').then(reg => console.log('SW Active'));
+  }
+
+  // Handle Install Prompt
+  let deferredPrompt;
+  const installBtn = document.getElementById('installBtn');
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.style.display = 'flex'; // Munculkan tombol jika belum terinstal
+  });
+
+  installBtn.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') installBtn.style.display = 'none';
+      deferredPrompt = null;
+    }
+  });
+
+  // Countdown Logic
   var cur=3,circ=2*Math.PI*25,ring=document.getElementById('pRing');
   ring.style.strokeDashoffset='0';
   function upd(v){ring.style.strokeDashoffset=circ*(1-v/3);}
@@ -56,7 +82,6 @@
       setTimeout(function(){ window.location.href='app.html'; }, 300);
     }
   },1000);
-  if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 </script>
 </body>
 </html>
