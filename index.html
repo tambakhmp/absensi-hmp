@@ -14,20 +14,21 @@
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://tambakhmp.my.id">
   <meta property="og:title"       content="PT. HUTAKALO MINATANI PRIMA — Absensi">
-  <meta property="og:description" content="Sistem Absensi Karyawan Digital. Klik untuk masuk ke aplikasi.">
-  <meta property="og:image"       content="https://raw.githubusercontent.com/tambakhmp/absensi-hmp/main/logo.png">
+  <meta property="og:description" content="Sistem Absensi Karyawan Digital. Klik untuk masuk.">
+  <meta property="og:image"       content="https://drive.google.com/uc?export=view&id=1wZTTly4WpgRdCvV6iPNEnLLN-dSRE8E4">
   <meta property="og:site_name"   content="PT. HUTAKALO MINATANI PRIMA">
   <meta name="twitter:card"       content="summary">
+  <meta name="twitter:image"      content="https://drive.google.com/uc?export=view&id=1wZTTly4WpgRdCvV6iPNEnLLN-dSRE8E4">
   <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;font-family:"Segoe UI",system-ui,sans-serif;overflow:hidden}
+html,body{height:100%;font-family:"Segoe UI",system-ui,sans-serif}
 body{
-  background:#0f172a url('https://raw.githubusercontent.com/tambakhmp/absensi-hmp-APP/main/bg.jpg') center/cover fixed;
+  background:#0f172a url('https://drive.google.com/uc?export=view&id=1EDBC6Mr1IE93ae3KHdttFKEDl_-2dvkq') center/cover fixed;
   color:#f1f5f9;
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
-  min-height:100vh;
-  padding:1rem;
+  min-height:100vh;padding:1rem;
+  position:relative;
 }
 body::before{
   content:'';position:fixed;inset:0;
@@ -37,18 +38,15 @@ body::before{
   position:relative;z-index:1;
   background:rgba(15,23,42,.92);
   border:1px solid rgba(255,255,255,.1);
-  border-radius:20px;
-  padding:2.5rem 2rem;
-  width:100%;max-width:400px;
-  text-align:center;
+  border-radius:20px;padding:2.5rem 2rem;
+  width:100%;max-width:400px;text-align:center;
   backdrop-filter:blur(16px);
   box-shadow:0 25px 60px rgba(0,0,0,.6);
   animation:up .4s ease;
 }
 @keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.logo{width:80px;height:80px;border-radius:16px;margin:0 auto 1rem;display:block;object-fit:contain;border:2px solid rgba(255,255,255,.15)}
-.logo-fb{width:80px;height:80px;background:linear-gradient(135deg,#1e3a5f,#2563eb);border-radius:16px;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:2.5rem}
-h1{font-size:1.15rem;font-weight:800;margin-bottom:.3rem;letter-spacing:.01em}
+.logo{width:80px;height:80px;border-radius:16px;margin:0 auto 1rem;display:block;object-fit:contain;border:2px solid rgba(255,255,255,.15);box-shadow:0 4px 18px rgba(0,0,0,.4)}
+h1{font-size:1.15rem;font-weight:800;margin-bottom:.3rem}
 .sub{font-size:.8rem;color:#94a3b8;margin-bottom:1.5rem}
 .status{display:flex;align-items:center;justify-content:center;gap:.4rem;font-size:.75rem;color:#94a3b8;padding:.4rem .75rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:20px;margin-bottom:1.5rem}
 .dot{width:7px;height:7px;background:#22c55e;border-radius:50%;animation:blink 2s infinite}
@@ -63,26 +61,27 @@ h1{font-size:1.15rem;font-weight:800;margin-bottom:.3rem;letter-spacing:.01em}
 .btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.85rem;background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;border:none;border-radius:12px;font-size:.92rem;font-weight:700;cursor:pointer;text-decoration:none;box-shadow:0 4px 20px rgba(59,130,246,.4);margin-bottom:.6rem;transition:opacity .15s}
 .btn:hover{opacity:.9}
 .btn.go{background:linear-gradient(135deg,#16a34a,#15803d);box-shadow:0 4px 20px rgba(22,163,74,.4)}
-.btn-outline{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.75rem;background:rgba(255,255,255,.06);color:#f1f5f9;border:1px solid rgba(255,255,255,.15);border-radius:12px;font-size:.88rem;font-weight:600;cursor:pointer;text-decoration:none;transition:background .15s;margin-bottom:1rem}
-.btn-outline:hover{background:rgba(255,255,255,.1)}
-.feats{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-top:.25rem}
+.btn-sec{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.75rem;background:rgba(255,255,255,.06);color:#f1f5f9;border:1px solid rgba(255,255,255,.15);border-radius:12px;font-size:.88rem;font-weight:600;cursor:pointer;text-decoration:none;transition:background .15s;margin-bottom:1rem}
+.btn-sec:hover{background:rgba(255,255,255,.1)}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
 .feat{display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:#94a3b8;padding:.4rem .6rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px}
-.install{display:none;align-items:center;gap:.75rem;padding:.7rem 1rem;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);border-radius:12px;margin-bottom:.75rem;cursor:pointer;text-align:left}
-.install:hover{background:rgba(34,197,94,.15)}
-.install .t1{font-size:.82rem;font-weight:700;color:#4ade80}
-.install .t2{font-size:.7rem;color:#94a3b8}
-.footer{font-size:.68rem;color:rgba(148,163,184,.3);margin-top:1.25rem;position:relative;z-index:1}
+#installBanner{display:none;align-items:center;gap:.75rem;padding:.7rem 1rem;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);border-radius:12px;margin-bottom:.75rem;cursor:pointer;text-align:left}
+.t1{font-size:.82rem;font-weight:700;color:#4ade80}
+.t2{font-size:.7rem;color:#94a3b8}
+.footer{font-size:.68rem;color:rgba(148,163,184,.3);margin-top:1.25rem;position:relative;z-index:1;text-align:center}
   </style>
 </head>
 <body>
 <div class="card">
-  <img id="logoImg" class="logo" src="https://raw.githubusercontent.com/tambakhmp/absensi-hmp/main/logo.png" alt="Logo"
-    onload="this.style.display='block'" onerror="this.style.display='none';document.getElementById('logoFb').style.display='flex'">
-  <div id="logoFb" class="logo-fb" style="display:none">🏢</div>
+  <img class="logo" src="https://drive.google.com/uc?export=view&id=1wZTTly4WpgRdCvV6iPNEnLLN-dSRE8E4" alt="Logo"
+    onerror="this.style.display='none'">
+
+  <h1>PT. HUTAKALO MINATANI PRIMA</h1>
+  <p class="sub">Sistem Absensi Karyawan Digital</p>
 
   <div class="status"><div class="dot"></div><span id="stTxt">Sistem aktif &amp; siap digunakan</span></div>
 
-  <div id="installBanner" class="install" onclick="installPWA()">
+  <div id="installBanner" onclick="installPWA()">
     <div style="font-size:1.4rem">📲</div>
     <div><div class="t1">Install ke Homescreen</div><div class="t2">Akses seperti aplikasi native</div></div>
   </div>
@@ -98,10 +97,10 @@ h1{font-size:1.15rem;font-weight:800;margin-bottom:.3rem;letter-spacing:.01em}
     <div class="lbl" id="cLbl">Mengarahkan dalam <b>3</b> detik...</div>
   </div>
 
-  <a id="btnGo" class="btn" href="https://script.google.com/macros/s/AKfycbwdyVqiqJ0ZPhO4jUKJzbHHxFvr94aK5QTFyvJaQ1N1ZRdVd3OI2EPuuu0GSljm4WiB/exec">
+  <a id="btnGo" class="btn" href="https://script.google.com/macros/s/AKfycbwTwVOpHCHmGQKqlskpnruvHE-4ughPS_fLMp7hfayRtoYYbp6vSxDcSwZWxnm2iBr6/exec">
     <span>🚀</span><span id="btnTxt">Membuka Aplikasi...</span>
   </a>
-  <a class="btn-outline" href="https://script.google.com/macros/s/AKfycbwdyVqiqJ0ZPhO4jUKJzbHHxFvr94aK5QTFyvJaQ1N1ZRdVd3OI2EPuuu0GSljm4WiB/exec" target="_blank" rel="noopener">
+  <a class="btn-sec" href="https://script.google.com/macros/s/AKfycbwTwVOpHCHmGQKqlskpnruvHE-4ughPS_fLMp7hfayRtoYYbp6vSxDcSwZWxnm2iBr6/exec" target="_blank" rel="noopener">
     <span>↗️</span><span>Buka di Tab Baru</span>
   </a>
 
@@ -115,11 +114,10 @@ h1{font-size:1.15rem;font-weight:800;margin-bottom:.3rem;letter-spacing:.01em}
 <div class="footer">© 2026 PT. HUTAKALO MINATANI PRIMA &nbsp;·&nbsp; Sistem Absensi v2.0</div>
 
 <script>
-var APP = 'https://script.google.com/macros/s/AKfycbwTwVOpHCHmGQKqlskpnruvHE-4ughPS_fLMp7hfayRtoYYbp6vSxDcSwZWxnm2iBr6/exec';
-document.getElementById('btnGo').href = APP;
+var APP='https://script.google.com/macros/s/AKfycbwTwVOpHCHmGQKqlskpnruvHE-4ughPS_fLMp7hfayRtoYYbp6vSxDcSwZWxnm2iBr6/exec';
 
 // Countdown
-var cur=3, circ=2*Math.PI*25;
+var cur=3,circ=2*Math.PI*25;
 var ring=document.getElementById('pRing');
 ring.style.strokeDashoffset='0';
 function upd(v){ring.style.strokeDashoffset=circ*(1-v/3);}
@@ -138,15 +136,14 @@ var t=setInterval(function(){
   }
 },1000);
 
-// PWA Install
+// PWA
 var dp=null;
 window.addEventListener('beforeinstallprompt',function(e){
   e.preventDefault();dp=e;
   document.getElementById('installBanner').style.display='flex';
 });
 function installPWA(){
-  if(!dp)return;
-  dp.prompt();
+  if(!dp)return;dp.prompt();
   dp.userChoice.then(function(r){
     if(r.outcome==='accepted')document.getElementById('installBanner').style.display='none';
     dp=null;
