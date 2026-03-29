@@ -2,50 +2,52 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <!-- Meta tag diperketat dengan user-scalable=no untuk mencegah zoom otomatis saat mengetik -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Absensi HMP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aplikasi Absensi - PT. Hutakalo Minatani Prima</title>
     <style>
-        /* Reset standar */
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            height: 100%; 
-            width: 100%; 
-            overflow: hidden; 
-            background-color: #0f172a;
-            /* Mencegah zoom dengan gestur cubit (optional tambahan) */
-            touch-action: pan-x pan-y;
+        /* Mengatur agar halaman web tidak memiliki jarak sisa */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Mencegah scroll ganda di luar iframe */
+            background-color: #000000; /* Warna latar belakang selaras dengan tema gelap */
         }
 
-        .container {
-            position: absolute;
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            bottom: 0;
-            display: flex;
-            flex-direction: column;
-        }
-
+        /* Mengatur agar Iframe (Aplikasi GAS) memenuhi seluruh layar HP */
         iframe {
-            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
+            border: none;
             display: block;
-        }
-
-        /* Trik CSS untuk mencegah zoom otomatis pada input di dalam iframe (beberapa browser) */
-        input, select, textarea {
-            font-size: 16px !important;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Gunakan link GAS Anda -->
-        <iframe src="https://script.google.com/macros/s/AKfycbxTNhF6lB65EFSBf3dlJFxA1enRmvPWbMe83QczEPI2omDPoBpeTYHIeL4zlZXXFpEc/exec" 
-                allow="geolocation; camera; microphone"></iframe>
-    </div>
+
+    <!-- Masukkan LINK DEPLOY TERBARU dari Google Apps Script Anda di src di bawah ini -->
+    <iframe 
+        src="https://script.google.com/macros/s/AKfycbxTNhF6lB65EFSBf3dlJFxA1enRmvPWbMe83QczEPI2omDPoBpeTYHIeL4zlZXXFpEc/exec" 
+        allow="geolocation; camera; microphone"
+        title="Absensi App">
+    </iframe>
+
+    <script>
+        // Memastikan iframe selalu memenuhi layar meskipun orientasi layar berubah
+        function adjustIframe() {
+            const iframe = document.querySelector('iframe');
+            if (iframe) {
+                iframe.style.height = window.innerHeight + 'px';
+                iframe.style.width = window.innerWidth + 'px';
+            }
+        }
+
+        window.addEventListener('resize', adjustIframe);
+        window.addEventListener('load', adjustIframe);
+    </script>
 </body>
 </html>
