@@ -2,20 +2,23 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aplikasi Absensi - PT. Hutakalo Minatani Prima</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Sistem Absensi HMP</title>
     <style>
-        /* Mengatur agar halaman web tidak memiliki jarak sisa */
+        /* Menghilangkan semua jarak (margin/padding) bawaan browser */
+        * {
+            box-sizing: border-box;
+        }
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
-            overflow: hidden; /* Mencegah scroll ganda di luar iframe */
-            background-color: #000000; /* Warna latar belakang selaras dengan tema gelap */
+            overflow: hidden; /* Mencegah scroll ganda */
+            background-color: #0f172a; /* Warna latar belakang gelap sesuai tema Anda */
         }
 
-        /* Mengatur agar Iframe (Aplikasi GAS) memenuhi seluruh layar HP */
+        /* Iframe dibuat absolut agar benar-benar menempel ke tepi layar */
         iframe {
             position: absolute;
             top: 0;
@@ -29,25 +32,20 @@
 </head>
 <body>
 
-    <!-- Masukkan LINK DEPLOY TERBARU dari Google Apps Script Anda di src di bawah ini -->
     <iframe 
-        src="https://script.google.com/macros/s/AKfycbxTNhF6lB65EFSBf3dlJFxA1enRmvPWbMe83QczEPI2omDPoBpeTYHIeL4zlZXXFpEc/exec" 
+        src="https://script.google.com/macros/s/AKfycbwgA8eAYrzt-JWoqHY7i2VOAMg5LmfCbVMpnK2MKVO_OOHrSSQ40m1d81XU1J2EaYWh/exec" 
         allow="geolocation; camera; microphone"
         title="Absensi App">
     </iframe>
 
     <script>
-        // Memastikan iframe selalu memenuhi layar meskipun orientasi layar berubah
-        function adjustIframe() {
-            const iframe = document.querySelector('iframe');
-            if (iframe) {
-                iframe.style.height = window.innerHeight + 'px';
-                iframe.style.width = window.innerWidth + 'px';
-            }
+        // Script tambahan untuk memastikan tinggi layar akurat di Android/iOS
+        function fixFullHeight() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
         }
-
-        window.addEventListener('resize', adjustIframe);
-        window.addEventListener('load', adjustIframe);
+        window.addEventListener('resize', fixFullHeight);
+        fixFullHeight();
     </script>
 </body>
 </html>
