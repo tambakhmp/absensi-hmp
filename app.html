@@ -2,17 +2,20 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <!-- Meta tag diperketat dengan user-scalable=no untuk mencegah zoom otomatis saat mengetik -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Absensi HMP</title>
     <style>
-        /* Mengembalikan ke tampilan standar yang stabil */
+        /* Reset standar */
         body, html { 
             margin: 0; 
             padding: 0; 
             height: 100%; 
             width: 100%; 
             overflow: hidden; 
-            background-color: #0f172a; 
+            background-color: #0f172a;
+            /* Mencegah zoom dengan gestur cubit (optional tambahan) */
+            touch-action: pan-x pan-y;
         }
 
         .container {
@@ -28,14 +31,19 @@
         iframe {
             border: none;
             width: 100%;
-            height: 100%; /* Tinggi normal 100% tanpa ditarik */
+            height: 100%;
             display: block;
+        }
+
+        /* Trik CSS untuk mencegah zoom otomatis pada input di dalam iframe (beberapa browser) */
+        input, select, textarea {
+            font-size: 16px !important;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Menggunakan URL GAS Anda langsung secara normal -->
+        <!-- Gunakan link GAS Anda -->
         <iframe src="https://script.google.com/macros/s/AKfycbwTwVOpHCHmGQKqlskpnruvHE-4ughPS_fLMp7hfayRtoYYbp6vSxDcSwZWxnm2iBr6/exec" 
                 allow="geolocation; camera; microphone"></iframe>
     </div>
